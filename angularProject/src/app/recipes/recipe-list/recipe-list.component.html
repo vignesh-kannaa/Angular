@@ -1,0 +1,7 @@
+<button routerLink='/recipe/new-recipe' class="btn  btn-success">New Recipe</button>
+<hr>
+<app-recipe-item
+     *ngFor="let recipe of recipes;let i=index" 
+     [recipeitem]="recipe"
+     [ind]="i">
+</app-recipe-item>

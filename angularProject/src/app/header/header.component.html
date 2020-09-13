@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">Recipe Book</a>
+      </div>
+      <div>
+        <ul class="nav navbar-nav">
+           <li
+              *ngIf="!flag"
+              routerLink='/auth'
+              routerLinkActive='active'
+              style='cursor: pointer;'>
+              <a >Authentication</a>
+            </li>
+              <li 
+              *ngIf="flag"
+                  routerLink='/recipe'
+                  routerLinkActive='active'
+                  style='cursor: pointer;'>
+                  <a >Recipes</a>
+              </li>
+              <li
+                  routerLink='/shoppinglist'
+                  routerLinkActive='active'
+                  style='cursor: pointer;'>
+                  <a >Shopping List</a>
+              </li>
+            </ul>
+            <ul class='nav navbar-nav navbar-right' 
+                *ngIf="flag"
+                style=cursor:pointer>
+                <li style='cursor: pointer;'><a (click)="logout()">Logout</a></li>
+              <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown">Manage <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                      <li><a (click)="savedata()">Save Data</a></li>
+                      <li><a (click)="fetchdata()">Fetch Data</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+    </div>
+  </nav>
+    

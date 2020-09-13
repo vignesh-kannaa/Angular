@@ -1,0 +1,58 @@
+<form [formGroup]=recipeform>
+<div class="row">
+    <div class="col-md-12">
+        <button [disabled]='!recipeform.valid'  
+                class='btn btn-success'
+                 type="submit"
+                 (click)='saverecipe()'
+                 routerLink='../'>Save</button>&nbsp;
+        <button class='btn btn-danger'  type="button" routerLink='../'>Cancel</button>
+    </div>
+    <hr>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for=name>Name</label>
+            <input class="form-control" type="text" id=name formControlName=name>
+        </div>
+        <div class="form-group">
+            <label for=imagepath>Image path</label>
+            <input class="form-control" type="text" id=imagepath formControlName=imagepath #imagepath>
+        </div>
+        <div class="form-group">
+            
+            <img [src]='imagepath.value' style='width: 70%;'>
+        </div>
+        <div class="form-group">
+            <label for=description>Description</label>
+            <textarea class="form-control" type="textarea" id=description rows="3" formControlName=description></textarea>
+        </div>
+        <div class="row ingrearray">
+            <div class="col-md-12" formArrayName='ingredient'>
+                <div class="row" 
+                        style='margin-top:10px'
+                        *ngFor='let ingre of ingredientarray;let i=index'
+                        [formGroupName]=i>
+                    <div class="col-md-6">
+                        <input type="text" size=20 formControlName=name>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="number" size=5 formControlName=amount>
+                    </div>
+                    <div class="col-md-4" style="padding-left: 30px;">
+                        <button class="btn btn-danger"type='button' style="height: 30px;" (click)='deleteingredient(i)'>X</button>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class='btn btn-primary' type="button" (click)=Addingredient()>Add Ingredient</button>
+                    </div>
+                    </div>
+            </div>
+            
+         </div> 
+         <br>
+        
+    </div>
+</div>
+</form>

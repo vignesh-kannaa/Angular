@@ -1,0 +1,30 @@
+
+<div *ngIf="isLoading"
+    class="col-md-6 col-md-offset-4">
+    <app-loader></app-loader>
+</div>
+<form *ngIf="!isLoading"
+    [formGroup]='formauth'
+    (ngSubmit)='onSubmit()'>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-2">
+            <div class=form-group>
+                <label for="email">Email:</label>
+                <input class="form-control"
+                 type="email" 
+                 id='email' 
+                 formControlName='email'
+                 >
+            </div>
+            <div class=form-group>
+                <label for="password">Password:</label>
+                <input class="form-control"
+                    type="password" 
+                    id='password' 
+                    formControlName='password'>
+            </div>
+            <button class="btn btn-primary" type='submit'[disabled]=!formauth.valid>{{onLogin ? 'Log In': 'Sign Up'}}</button>&nbsp;
+            <button class="btn btn-primary" type='button' (click)='switchLogging()'>Switch to {{onLogin?'Sign Up':'Log In'}}</button>
+        </div>
+     </div>
+</form>

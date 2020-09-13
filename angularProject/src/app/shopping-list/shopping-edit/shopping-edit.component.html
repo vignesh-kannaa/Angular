@@ -1,0 +1,26 @@
+<form [formGroup]='formshoppingedit'
+(ngSubmit)='onsubmit()' 
+class="form-inline">
+    <div 
+      class="form-group">
+      <label >Ingredient:</label>
+      <input type="text"
+       class="form-control"
+        id="ingredient"
+        formControlName=name>
+    </div>
+   
+    <div class="form-group">
+      <label>Amount:</label>
+      <input type="number" 
+      class="form-control"
+       id="amount"
+       formControlName=amount>
+    </div>
+    <br>
+    <p *ngIf='!flag' style='color: red;'>Please enter correct details!</p>
+   <hr>
+    <button  class="btn btn-success" type='submit'>{{editMode?'Update':'Add'}}</button>&nbsp;
+    <button  *ngIf='editMode' class="btn btn-danger" type='button' (click)='deleteingredient()'>Delete</button>&nbsp;
+    <button  class="btn btn-primary" type='button' (click)='clearform()'>Clear</button>&nbsp;
+</form>

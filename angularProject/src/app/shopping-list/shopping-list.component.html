@@ -1,0 +1,14 @@
+<app-shopping-edit></app-shopping-edit>
+<hr>
+<div class="row"  
+ style=cursor:pointer; 
+ *ngFor="let ingredient of ingredents; let i=index"
+ (click)=updateingredient(i)>
+
+    <div class="col-md-2">
+        <p>{{ingredient.name}}</p>
+    </div>
+    <div class="col-md-2">
+        <p>{{ingredient.amount}}</p>
+    </div>
+ </div>   

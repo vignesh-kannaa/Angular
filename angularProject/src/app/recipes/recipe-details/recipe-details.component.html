@@ -1,0 +1,37 @@
+
+<div class="row">
+     <div class='col-md-12'>
+        <img src="{{recipedetail.image}}" alt='recipe image' style="max-height: 300px;">
+        <h2>{{recipedetail.name}}</h2>
+        
+        <p>{{recipedetail.description}}</p> 
+
+        <div class="dropdown">
+            <button class="dropdown-toggle btn btn-primary" data-toggle="dropdown">Manage
+            <span class="caret"></span></button>
+            <ul class="dropdown-menu" style="cursor: pointer;">
+              <li><a (click)="addingshop()">Add to Shopping</a></li>
+              <li><a routerLink='edit-recipe'>Edit</a></li>
+              <li><a (click)='deleterecipe()' routerLink='../'>Delete</a></li>
+            </ul>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" (click)="addingshop()">Add to Shopping</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary" routerLink='edit-recipe'>Edit</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary"(click)='deleterecipe()' routerLink='../'>Delete</button>
+            </div>
+        </div> -->
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor='let ingredient of recipedetail.recipeingredient'>
+                {{ingredient.name}} - {{ingredient.amount}}
+            </li> 
+        </ul>
+    
+    </div>
+</div>
+        
